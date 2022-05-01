@@ -45,11 +45,14 @@
      <Compile Include="Assets\Scripts\Inventory\SlotManager.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuPause.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventoryCursor.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerAnimations.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Inventory\SlotItem.cs" />
      <Compile Include="Assets\Scripts\Player\LockMouse.cs" />
      <Compile Include="Assets\Scripts\Player\IPlayerMoveStates.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerAnimations.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerMechanics.cs" />
+     <Compile Include="Assets\Scripts\Enviroment\DoorController.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerDoorSetup.cs" />
      <None Include="Assets\Game Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Game Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Game Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
