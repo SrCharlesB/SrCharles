@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPlayerMoveStates
 {
     [Header("Player Controller")]
     [SerializeField] private LayerMask _GroundMask;
@@ -16,11 +16,38 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     Vector3 Move;
     Vector3 velocity;
-    bool _IsRunning;
+    bool _Run;
+
+    public bool Running()
+    {
+        bool value = _Run;
+        return value;
+    }
+
+    public bool Walking()
+    {
+        bool value = Move.magnitude > 0;
+        return value;
+    }
+
     void Awake()
     {
         Speed = _PlayerConfig.WalkSpeed;
     }
+
+    float IPlayerMoveStates.Move()
+    {
+        float value;
+        switch (_Run)
+        {
+            case true: 
+                value = Move.magnitude * 2f; break;
+            case false: 
+                value = Move.magnitude; break;
+        }
+        return value;
+    }
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(_Check.position, _GroundDistance, _GroundMask);
@@ -38,8 +65,8 @@ public class PlayerController : MonoBehaviour
         }  
 
         //print($"move: {_PlayerInputs.Move()}");
-        bool _run = Input.GetKey(KeyCode.LeftShift) && _PlayerInputs.Move().z > 0;
-        switch(_run)
+        _Run = Input.GetKey(KeyCode.LeftShift) && _PlayerInputs.Move().z > 0;
+        switch(_Run)
         {
             case true:
                 Speed = _PlayerConfig.RunSpeed;
@@ -54,6 +81,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //print($"Speed: {Speed}");
+        //print($"Move: {Move.magnitude}, Velocity: {velocity}");
         _Controller.Move(Move * (Speed * Time.deltaTime));
 
         velocity.y += _PlayerConfig.GravityForce * Time.deltaTime;

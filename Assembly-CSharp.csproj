@@ -48,6 +48,8 @@
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Inventory\SlotItem.cs" />
      <Compile Include="Assets\Scripts\Player\LockMouse.cs" />
+     <Compile Include="Assets\Scripts\Player\IPlayerMoveStates.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerAnimations.cs" />
      <None Include="Assets\Game Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Game Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Game Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
