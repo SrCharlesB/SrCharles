@@ -5,5 +5,6 @@ public class Item : MonoBehaviour
     public string Name;
     public int IndexID;
     public string NameID;
-    public int Amount = 1;
+    public int Amount;
+    public string Description;
 }

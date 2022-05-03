@@ -20,21 +20,19 @@ public class InventoryController : MonoBehaviour
         return item;
     }
 
-    public void AddItem(SlotItem slotitem)
+    public void AddItem(string name, string description, string nameID, int amount, int indexID)
     {
-        SlotItem item = new SlotItem();
-        #region SetItemInformation
-            item.IndexID = slotitem.IndexID;
-            item.NameID = slotitem.NameID;
-            item.Amount = slotitem.Amount;
-            item.Name = slotitem.Name;
-        #endregion
-
         foreach(Slot slot in _Slots)
         {
             if(slot.Item.Amount == 0)
             {
-                slot.Item = item;
+                slot.Item.Name = name;
+                slot.Item.Description = description;
+                slot.Item.Amount = amount;
+                slot.Item.IndexID = indexID;
+                slot.Item.NameID = nameID;
+                print($"Item Added: {name}");
+                return;
             }
         }
     }
