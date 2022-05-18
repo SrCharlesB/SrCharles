@@ -12,6 +12,7 @@ public class Item3DView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private Vector3 _Rotate;
     private float x;
     private float y;
+
     public void OnPointerDown(PointerEventData eventData)
     {
         _CanMove = true;

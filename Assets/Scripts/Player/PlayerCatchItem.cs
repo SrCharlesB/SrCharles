@@ -7,6 +7,13 @@ public class PlayerCatchItem : MonoBehaviour
     [SerializeField] private float _RayRange = 2f;
     [SerializeField] private Transform _Direction;
     [SerializeField] private InventoryController _Controller;
+    [SerializeField] private GameObject _UIComplete; //for prototype
+
+    private void Awake()
+    {
+        _UIComplete.SetActive(true);
+    }
+    
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.F))
@@ -16,6 +23,7 @@ public class PlayerCatchItem : MonoBehaviour
             {
                 if(hit.transform.TryGetComponent(out Item3D item3D))
                 {
+                    //print($"Catch: {item3D.name}");
                     _Controller.AddItem(
                         item3D.Name,
                         item3D.Description,
